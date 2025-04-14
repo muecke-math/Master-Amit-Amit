@@ -1,0 +1,5 @@
+Data shape: (256, 100)
+Min value: -0.9999810273487268
+Max value: 0.9999810273487268
+Mean value: 6.428191312579656e-16
+Standard Deviation: 0.6143375139555313

@@ -1,0 +1,5 @@
+Data shape: (512, 201)
+Min value: -1.0
+Max value: 0.9926964565642411
+Mean value: -0.21785548005264932
+Standard Deviation: 0.6749563997583304

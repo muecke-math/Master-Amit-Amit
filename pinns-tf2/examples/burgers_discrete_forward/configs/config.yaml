@@ -1,0 +1,144 @@
+defaults:
+  - train
+  - _self_
+
+q: 500
+N: 250
+idx_t0: 10
+idx_t1: 90
+idx_t_test: 92 # Added for testing
+discrete: True
+
+time_domain:
+  _target_: pinnstf2.data.TimeDomain
+  t_interval: [0, 0.99]
+  t_points: 100
+
+spatial_domain:
+  _target_: pinnstf2.data.Interval
+  x_interval: [-1, 1]
+  shape: [256, 1]
+
+mesh:
+  _target_: pinnstf2.data.Mesh
+  root_dir: ${paths.data_dir}
+  read_data_fn: ???
+
+runge_kutta:
+  _target_: pinnstf2.models.RungeKutta
+  root_dir: ${paths.rk_dir}
+  q: ${q}
+  t1: ${idx_t0}
+  t2: ${idx_t1}
+  time_domain: ${time_domain}
+
+train_datasets:
+  - mesh_sampler:
+      _target_: pinnstf2.data.DiscreteMeshSampler
+      _partial_: true
+      num_sample: ${N}
+      idx_t: ${idx_t0}
+      solution:
+        - u
+      collection_points:
+        - f
+
+  - dirichlet_boundary_condition:
+      _target_: pinnstf2.data.DirichletBoundaryCondition
+      _partial_: true
+      idx_t: ${idx_t1}
+      solution:
+        - u
+
+val_dataset:
+  - mesh_sampler:
+      _target_: pinnstf2.data.DiscreteMeshSampler
+      _partial_: true
+      idx_t: ${idx_t1}
+      solution:
+        - u
+
+# Now the test dataset uses a different time index (idx_t_test)
+test_dataset:
+  - mesh_sampler:
+      _target_: pinnstf2.data.DiscreteMeshSampler
+      _partial_: true
+      idx_t: ${idx_t_test}
+      solution:
+        - u
+
+pred_dataset:
+  - mesh_sampler:
+      _target_: pinnstf2.data.DiscreteMeshSampler
+      _partial_: true
+      idx_t: ${idx_t1}
+      solution:
+        - u
+
+net:
+  _target_: pinnstf2.models.FCN
+  layers:
+    - 1
+    - 50
+    - 50
+    - 50
+    - ${eval:'${q} + 1'}
+  output_names:
+    - u
+  discrete: ${discrete}
+  activation: "tanh"  # or "tanh" YY, "sigmoid" YY, "relu" XX, "swish" YY, "softsign" XX, "softplus" YY.
+
+trainer:
+  max_epochs: 10000
+  check_val_every_n_epoch: 1000
+
+model:
+  optimizer: ${optimizer}
+  loss_fn: sse # sse (default) , mse, mae, huber.
+  runge_kutta: ${runge_kutta}
+
+# optimizer:
+#   _target_: tensorflow.keras.optimizers.Adam
+#   learning_rate: 0.001
+# optimizer:
+#   _target_: tensorflow.keras.optimizers.Adagrad
+#   learning_rate: 0.01
+#   initial_accumulator_value: 0.1
+# optimizer:
+#   _target_: tensorflow.keras.optimizers.RMSprop
+#   learning_rate: 0.001
+#   rho: 0.9
+#   momentum: 0.0
+#   epsilon: 1e-7
+optimizer:
+  _target_: tensorflow.keras.optimizers.Nadam
+  learning_rate: 0.002
+  beta_1: 0.9
+  beta_2: 0.999
+  epsilon: 1e-7
+
+train: true
+test: true
+val: true
+optimized_metric:
+  error:
+    - u
+  test: # Comment it out if you dont want test
+    - u
+
+plotting:
+  _target_: pinnstf2.utils.plot_burgers_discrete_forward
+  _partial_: true
+
+seed: 1234
+task_name: burgers_discrete_forward
+
+hydra:
+  searchpath:
+    - pkg://pinnstf2/conf
+
+tensorboard:
+  log_dir: ${paths.output_dir}/logs
+  histogram_freq: 1
+  write_graph: true
+  update_freq: epoch

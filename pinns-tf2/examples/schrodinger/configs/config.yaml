@@ -1,0 +1,146 @@
+defaults:
+  - train
+  - _self_
+
+N0: 50
+N_b: 50
+N_f: 20_000
+
+time_domain:
+  _target_: pinnstf2.data.TimeDomain
+  t_interval: [0, 1.57079633]
+  t_points: 201
+
+spatial_domain:
+  _target_: pinnstf2.data.Interval
+  x_interval: [-5, 4.9609375]
+  shape: [256, 1]
+
+mesh:
+  _target_: pinnstf2.data.Mesh
+  root_dir: ${paths.data_dir}
+  read_data_fn: ???
+  ub: [5.0, 1.57079633]
+  lb: [-5.0, 0.0]
+
+train_datasets:
+  - mesh_sampler:
+      _target_: pinnstf2.data.MeshSampler
+      _partial_: true
+      num_sample: ${N_f}
+      collection_points:
+        - f_u
+        - f_v
+
+  - initial_condition:
+      _target_: pinnstf2.data.InitialCondition
+      _partial_: true
+      num_sample: ${N0}
+      solution:
+        - u
+        - v
+
+  - periodic_boundary_condition:
+      _target_: pinnstf2.data.PeriodicBoundaryCondition
+      _partial_: true
+      num_sample: ${N_b}
+      derivative_order: 1
+      solution:
+        - u
+        - v
+
+val_dataset:
+  - mesh_sampler:
+      _target_: pinnstf2.data.MeshSampler
+      _partial_: true
+      solution:
+        - u
+        - v
+        - h
+
+# Now the test dataset uses a different time index (idx_t_test)
+test_dataset:
+  - mesh_sampler:
+      _target_: pinnstf2.data.MeshSampler
+      _partial_: true
+      solution:
+        - u
+        - v
+        - h
+
+pred_dataset:
+  - mesh_sampler:
+      _target_: pinnstf2.data.MeshSampler
+      _partial_: true
+      solution:
+        - u
+        - v
+        - h
+
+net:
+  _target_: pinnstf2.models.FCN
+  layers: [2, 100, 100, 100, 100, 100, 2] # Added extra layer
+  output_names:
+    - u
+    - v
+  activation: "tanh"  # or "tanh" YY, "sigmoid" YY, "relu" XX, "swish" YY, "softsign" XX, "softplus" YY.
+
+trainer:
+  max_epochs: 60000
+  check_val_every_n_epoch: 60001
+  default_root_dir: ${tensorboard.log_dir}  # Pass log directory to enable Trainer's TensorBoard.
+
+model:
+  optimizer: ${optimizer}
+  loss_fn: mse # sse, mse (default), mae, huber.
+
+# Optimizer configuration provided
+optimizer:
+  _target_: tensorflow.keras.optimizers.Adam
+  learning_rate: 0.001
+# optimizer:
+#   _target_: tensorflow.keras.optimizers.Adagrad
+#   learning_rate: 0.01
+#   initial_accumulator_value: 0.1
+# optimizer:
+#   _target_: tensorflow.keras.optimizers.RMSprop
+#   learning_rate: 0.001
+#   rho: 0.9
+#   momentum: 0.0
+#   epsilon: 1e-7
+# optimizer:
+#   _target_: tensorflow.keras.optimizers.Nadam
+#   learning_rate: 0.002
+#   beta_1: 0.9
+#   beta_2: 0.999
+#   epsilon: 1e-7
+
+train: true
+test: true
+val: true
+optimized_metric:
+  error:
+    - u
+    - v
+    - h
+  test: # Comment it out if you dont want test
+    - u
+    - v
+    - h
+
+plotting:
+  _target_: pinnstf2.utils.plot_schrodinger
+  _partial_: true
+
+seed: 1234
+task_name: schrodinger
+
+hydra:
+  searchpath:
+    - pkg://pinnstf2/conf
+
+tensorboard:
+  log_dir: ${paths.output_dir}/logs
+  histogram_freq: 1
+  write_graph: true
+  update_freq: epoch

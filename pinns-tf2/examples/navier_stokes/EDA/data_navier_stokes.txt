@@ -1,0 +1,20 @@
+Summary Statistics for u:
+  Data shape: (5000, 200)
+  Min value: -0.24026849014902615
+  Max value: 1.322556473239624
+  Mean value: 0.8602218826086219
+  Standard Deviation: 0.28369631009053686
+
+Summary Statistics for v:
+  Data shape: (5000, 200)
+  Min value: -0.624110517662326
+  Max value: 0.6234357373114737
+  Mean value: 0.004339857798824968
+  Standard Deviation: 0.27413348979226276
+
+Summary Statistics for p:
+  Data shape: (5000, 200)
+  Min value: -0.5364756020446917
+  Max value: 0.07247393407656716
+  Mean value: -0.08219172753288338
+  Standard Deviation: 0.1027165272612335

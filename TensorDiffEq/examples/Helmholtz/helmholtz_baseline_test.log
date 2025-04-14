@@ -1,0 +1,233 @@
+Job started at: Sun Mar 16 01:54:14 PM UTC 2025
+Running Python script...
+2025-03-16 13:54:15.071136: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-03-16 13:54:15.071861: I external/local_xla/xla/tsl/cuda/cudart_stub.cc:32] Could not find cuda drivers on your machine, GPU will not be used.
+2025-03-16 13:54:15.076638: I external/local_xla/xla/tsl/cuda/cudart_stub.cc:32] Could not find cuda drivers on your machine, GPU will not be used.
+2025-03-16 13:54:15.086783: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1742133255.103715  727167 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1742133255.108286  727167 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-03-16 13:54:15.126667: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-03-16 13:54:21.201174: E external/local_xla/xla/stream_executor/cuda/cuda_driver.cc:152] failed call to cuInit: INTERNAL: CUDA error: Failed call to cuInit: UNKNOWN ERROR (303)
+WARNING:tensorflow:Calling GradientTape.gradient on a persistent tape inside its context is significantly less efficient than calling it outside the context (it causes the gradient ops to be recorded on the tape, leading to increased CPU and memory usage). Only call GradientTape.gradient inside the context if you actually want to trace the gradient in order to compute higher order derivatives.
+WARNING:tensorflow:Calling GradientTape.gradient on a persistent tape inside its context is significantly less efficient than calling it outside the context (it causes the gradient ops to be recorded on the tape, leading to increased CPU and memory usage). Only call GradientTape.gradient inside the context if you actually want to trace the gradient in order to compute higher order derivatives.
+WARNING:tensorflow:Calling GradientTape.gradient on a persistent tape inside its context is significantly less efficient than calling it outside the context (it causes the gradient ops to be recorded on the tape, leading to increased CPU and memory usage). Only call GradientTape.gradient inside the context if you actually want to trace the gradient in order to compute higher order derivatives.
+WARNING:tensorflow:Calling GradientTape.gradient on a persistent tape inside its context is significantly less efficient than calling it outside the context (it causes the gradient ops to be recorded on the tape, leading to increased CPU and memory usage). Only call GradientTape.gradient inside the context if you actually want to trace the gradient in order to compute higher order derivatives.
+mse_b: 0.09395764023065567  mse_f: 2312.023193359375   total loss: 2312.1171875
+mse_b: 0.004150260705500841  mse_f: 2318.973388671875   total loss: 2318.9775390625
+mse_b: 0.04271367937326431  mse_f: 2325.93896484375   total loss: 2325.981689453125
+mse_b: 0.05769864469766617  mse_f: 2332.916259765625   total loss: 2332.973876953125
+mse_b: 0.03458812087774277  mse_f: 2339.905029296875   total loss: 2339.939697265625
+mse_b: 0.00880584865808487  mse_f: 2346.904541015625   total loss: 2346.913330078125
+mse_b: 0.000500140362419188  mse_f: 2353.91552734375   total loss: 2353.916015625
+mse_b: 0.01113181747496128  mse_f: 2360.936279296875   total loss: 2360.947509765625
+mse_b: 0.029093248769640923  mse_f: 2367.966796875   total loss: 2367.995849609375
+mse_b: 0.041434720158576965  mse_f: 2375.006103515625   total loss: 2375.047607421875
+mse_b: 0.04285678267478943  mse_f: 2382.0537109375   total loss: 2382.0966796875
+mse_b: 0.03536337614059448  mse_f: 2389.108154296875   total loss: 2389.1435546875
+mse_b: 0.024008985608816147  mse_f: 2396.16796875   total loss: 2396.19189453125
+mse_b: 0.013717371970415115  mse_f: 2403.2314453125   total loss: 2403.2451171875
+mse_b: 0.007763647940009832  mse_f: 2410.296630859375   total loss: 2410.304443359375
+mse_b: 0.00733049213886261  mse_f: 2417.361328125   total loss: 2417.36865234375
+mse_b: 0.011742299422621727  mse_f: 2424.423828125   total loss: 2424.435546875
+mse_b: 0.01915564015507698  mse_f: 2431.481689453125   total loss: 2431.500732421875
+mse_b: 0.02743585780262947  mse_f: 2438.53369140625   total loss: 2438.56103515625
+mse_b: 0.034884825348854065  mse_f: 2445.57861328125   total loss: 2445.613525390625
+mse_b: 0.04059872031211853  mse_f: 2452.615234375   total loss: 2452.65576171875
+mse_b: 0.0444658063352108  mse_f: 2459.642578125   total loss: 2459.68701171875
+mse_b: 0.046960555016994476  mse_f: 2466.659912109375   total loss: 2466.706787109375
+mse_b: 0.04888731241226196  mse_f: 2473.66650390625   total loss: 2473.71533203125
+mse_b: 0.05115287005901337  mse_f: 2480.662353515625   total loss: 2480.713623046875
+mse_b: 0.054595496505498886  mse_f: 2487.64599609375   total loss: 2487.70068359375
+mse_b: 0.05987522006034851  mse_f: 2494.61767578125   total loss: 2494.677490234375
+mse_b: 0.06741918623447418  mse_f: 2501.577392578125   total loss: 2501.644775390625
+mse_b: 0.07740987092256546  mse_f: 2508.525390625   total loss: 2508.602783203125
+mse_b: 0.08980529010295868  mse_f: 2515.46240234375   total loss: 2515.55224609375
+mse_b: 0.1043870747089386  mse_f: 2522.39013671875   total loss: 2522.49462890625
+mse_b: 0.12082409858703613  mse_f: 2529.310302734375   total loss: 2529.43115234375
+mse_b: 0.13873575627803802  mse_f: 2536.22607421875   total loss: 2536.36474609375
+mse_b: 0.1577494889497757  mse_f: 2543.14013671875   total loss: 2543.2978515625
+mse_b: 0.1775517761707306  mse_f: 2550.055908203125   total loss: 2550.2333984375
+mse_b: 0.1979260891675949  mse_f: 2556.977783203125   total loss: 2557.17578125
+mse_b: 0.2187698930501938  mse_f: 2563.90966796875   total loss: 2564.12841796875
+mse_b: 0.2400965392589569  mse_f: 2570.856201171875   total loss: 2571.09619140625
+mse_b: 0.2620317041873932  mse_f: 2577.821533203125   total loss: 2578.08349609375
+mse_b: 0.2848072052001953  mse_f: 2584.810302734375   total loss: 2585.09521484375
+mse_b: 0.308748722076416  mse_f: 2591.826171875   total loss: 2592.135009765625
+mse_b: 0.3342567980289459  mse_f: 2598.872314453125   total loss: 2599.20654296875
+mse_b: 0.36177825927734375  mse_f: 2605.950439453125   total loss: 2606.312255859375
+mse_b: 0.3917653262615204  mse_f: 2613.06103515625   total loss: 2613.452880859375
+mse_b: 0.42463478446006775  mse_f: 2620.2021484375   total loss: 2620.626708984375
+mse_b: 0.4607320725917816  mse_f: 2627.370849609375   total loss: 2627.83154296875
+mse_b: 0.5002855658531189  mse_f: 2634.5625   total loss: 2635.062744140625
+mse_b: 0.5433602333068848  mse_f: 2641.771728515625   total loss: 2642.315185546875
+mse_b: 0.5898400545120239  mse_f: 2648.9931640625   total loss: 2649.5830078125
+mse_b: 0.6394525170326233  mse_f: 2656.22265625   total loss: 2656.862060546875
+mse_b: 0.691819965839386  mse_f: 2663.454833984375   total loss: 2664.146728515625
+mse_b: 0.7465175986289978  mse_f: 2670.6875   total loss: 2671.43408203125
+mse_b: 0.8031254410743713  mse_f: 2677.919189453125   total loss: 2678.722412109375
+mse_b: 0.8612816333770752  mse_f: 2685.1494140625   total loss: 2686.0107421875
+mse_b: 0.9207211136817932  mse_f: 2692.378662109375   total loss: 2693.29931640625
+mse_b: 0.9812858700752258  mse_f: 2699.606689453125   total loss: 2700.587890625
+mse_b: 1.0429188013076782  mse_f: 2706.833984375   total loss: 2707.876953125
+mse_b: 1.1056478023529053  mse_f: 2714.06005859375   total loss: 2715.165771484375
+mse_b: 1.1695704460144043  mse_f: 2721.28515625   total loss: 2722.454833984375
+mse_b: 1.2348381280899048  mse_f: 2728.508056640625   total loss: 2729.742919921875
+mse_b: 1.3016409873962402  mse_f: 2735.730224609375   total loss: 2737.031982421875
+mse_b: 1.3701987266540527  mse_f: 2742.951416015625   total loss: 2744.321533203125
+mse_b: 1.4407531023025513  mse_f: 2750.17236328125   total loss: 2751.613037109375
+mse_b: 1.5135700702667236  mse_f: 2757.394287109375   total loss: 2758.907958984375
+mse_b: 1.5889440774917603  mse_f: 2764.6171875   total loss: 2766.2060546875
+mse_b: 1.6672031879425049  mse_f: 2771.84228515625   total loss: 2773.509521484375
+mse_b: 1.748706340789795  mse_f: 2779.069091796875   total loss: 2780.81787109375
+mse_b: 1.8338311910629272  mse_f: 2786.296875   total loss: 2788.130615234375
+mse_b: 1.922959327697754  mse_f: 2793.525146484375   total loss: 2795.447998046875
+mse_b: 2.0164573192596436  mse_f: 2800.752685546875   total loss: 2802.76904296875
+mse_b: 2.114657402038574  mse_f: 2807.978759765625   total loss: 2810.093505859375
+mse_b: 2.2178361415863037  mse_f: 2815.204833984375   total loss: 2817.422607421875
+mse_b: 2.326198101043701  mse_f: 2822.431396484375   total loss: 2824.757568359375
+mse_b: 2.4398536682128906  mse_f: 2829.661376953125   total loss: 2832.101318359375
+mse_b: 2.5588011741638184  mse_f: 2836.899169921875   total loss: 2839.4580078125
+mse_b: 2.682910919189453  mse_f: 2844.150390625   total loss: 2846.833251953125
+mse_b: 2.8119099140167236  mse_f: 2851.421875   total loss: 2854.23388671875
+mse_b: 2.945375680923462  mse_f: 2858.720703125   total loss: 2861.666015625
+mse_b: 3.082731246948242  mse_f: 2866.056396484375   total loss: 2869.13916015625
+mse_b: 3.2232506275177  mse_f: 2873.436767578125   total loss: 2876.659912109375
+mse_b: 3.3660717010498047  mse_f: 2880.87109375   total loss: 2884.237060546875
+mse_b: 3.5102365016937256  mse_f: 2888.365966796875   total loss: 2891.876220703125
+mse_b: 3.6547458171844482  mse_f: 2895.92724609375   total loss: 2899.58203125
+mse_b: 3.79864764213562  mse_f: 2903.558349609375   total loss: 2907.35693359375
+mse_b: 3.9411237239837646  mse_f: 2911.257568359375   total loss: 2915.19873046875
+mse_b: 4.0815606117248535  mse_f: 2919.020751953125   total loss: 2923.102294921875
+mse_b: 4.219592571258545  mse_f: 2926.84033203125   total loss: 2931.059814453125
+mse_b: 4.355121612548828  mse_f: 2934.70361328125   total loss: 2939.058837890625
+mse_b: 4.4883012771606445  mse_f: 2942.59765625   total loss: 2947.0859375
+mse_b: 4.619480133056641  mse_f: 2950.507568359375   total loss: 2955.126953125
+mse_b: 4.749099254608154  mse_f: 2958.41845703125   total loss: 2963.16748046875
+mse_b: 4.877575397491455  mse_f: 2966.3193359375   total loss: 2971.197021484375
+mse_b: 5.005198001861572  mse_f: 2974.201171875   total loss: 2979.206298828125
+mse_b: 5.132047653198242  mse_f: 2982.05859375   total loss: 2987.190673828125
+mse_b: 5.257948875427246  mse_f: 2989.8896484375   total loss: 2995.147705078125
+mse_b: 5.382458209991455  mse_f: 2997.69580078125   total loss: 3003.078369140625
+mse_b: 5.504887104034424  mse_f: 3005.479736328125   total loss: 3010.984619140625
+mse_b: 5.624352931976318  mse_f: 3013.2470703125   total loss: 3018.871337890625
+mse_b: 5.7398505210876465  mse_f: 3021.00341796875   total loss: 3026.7431640625
+mse_b: 5.850330829620361  mse_f: 3028.756591796875   total loss: 3034.60693359375
+/home/users/aamit/Project/TensorDiffEq/examples/Helmholtz/helmholtz.py:341: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+  leg = ax.legend(frameon=False, loc = 'best')
+/home/users/aamit/Project/TensorDiffEq/examples/Helmholtz/helmholtz.py:354: DeprecationWarning: Conversion of an array with ndim > 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)
+  ax.set_title('$y = %.2f$' % (y[250]), fontsize = 10)
+/home/users/aamit/Project/TensorDiffEq/examples/Helmholtz/helmholtz.py:367: DeprecationWarning: Conversion of an array with ndim > 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)
+  ax.set_title('$x = %.2f$' % (y[500]), fontsize = 10)
+/home/users/aamit/Project/TensorDiffEq/examples/Helmholtz/helmholtz.py:378: DeprecationWarning: Conversion of an array with ndim > 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)
+  ax.set_title('$x = %.2f$' % (y[750]), fontsize = 10)
+/home/users/aamit/Project/TensorDiffEq/examples/Helmholtz/plotting.py:213: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+  leg = ax.legend(frameon=False, loc = 'best')
+starting Adam training
+It: 0, Time: 1.48
+It: 1, Time: 1.05
+It: 2, Time: 1.04
+It: 3, Time: 1.03
+It: 4, Time: 1.03
+It: 5, Time: 1.04
+It: 6, Time: 1.05
+It: 7, Time: 1.00
+It: 8, Time: 1.05
+It: 9, Time: 1.06
+It: 10, Time: 1.05
+It: 11, Time: 1.02
+It: 12, Time: 1.04
+It: 13, Time: 1.05
+It: 14, Time: 1.04
+It: 15, Time: 1.02
+It: 16, Time: 1.04
+It: 17, Time: 1.05
+It: 18, Time: 1.03
+It: 19, Time: 1.02
+It: 20, Time: 1.04
+It: 21, Time: 1.02
+It: 22, Time: 1.03
+It: 23, Time: 1.03
+It: 24, Time: 1.05
+It: 25, Time: 1.05
+It: 26, Time: 1.03
+It: 27, Time: 1.01
+It: 28, Time: 1.06
+It: 29, Time: 1.06
+It: 30, Time: 1.02
+It: 31, Time: 1.02
+It: 32, Time: 1.05
+It: 33, Time: 1.05
+It: 34, Time: 1.05
+It: 35, Time: 1.06
+It: 36, Time: 1.05
+It: 37, Time: 1.04
+It: 38, Time: 1.02
+It: 39, Time: 1.07
+It: 40, Time: 1.04
+It: 41, Time: 1.05
+It: 42, Time: 1.02
+It: 43, Time: 1.06
+It: 44, Time: 1.05
+It: 45, Time: 1.04
+It: 46, Time: 1.04
+It: 47, Time: 1.05
+It: 48, Time: 1.06
+It: 49, Time: 1.07
+It: 50, Time: 1.05
+It: 51, Time: 1.06
+It: 52, Time: 1.04
+It: 53, Time: 1.04
+It: 54, Time: 1.03
+It: 55, Time: 1.05
+It: 56, Time: 1.06
+It: 57, Time: 1.03
+It: 58, Time: 1.05
+It: 59, Time: 1.06
+It: 60, Time: 1.04
+It: 61, Time: 1.01
+It: 62, Time: 1.05
+It: 63, Time: 1.06
+It: 64, Time: 1.07
+It: 65, Time: 1.04
+It: 66, Time: 1.08
+It: 67, Time: 1.07
+It: 68, Time: 1.04
+It: 69, Time: 1.05
+It: 70, Time: 1.05
+It: 71, Time: 1.05
+It: 72, Time: 1.03
+It: 73, Time: 1.04
+It: 74, Time: 1.07
+It: 75, Time: 1.05
+It: 76, Time: 1.04
+It: 77, Time: 1.05
+It: 78, Time: 1.05
+It: 79, Time: 1.04
+It: 80, Time: 1.04
+It: 81, Time: 1.03
+It: 82, Time: 1.05
+It: 83, Time: 1.03
+It: 84, Time: 1.02
+It: 85, Time: 1.04
+It: 86, Time: 1.05
+It: 87, Time: 1.05
+It: 88, Time: 1.02
+It: 89, Time: 1.02
+It: 90, Time: 1.05
+It: 91, Time: 1.02
+It: 92, Time: 1.05
+It: 93, Time: 1.05
+It: 94, Time: 1.01
+It: 95, Time: 1.03
+It: 96, Time: 1.05
+It: 97, Time: 1.07
+It: 98, Time: 1.04
+It: 99, Time: 1.02
+Starting L-BFGS training
+Step  10 loss 3000.03345 
+Step  20 loss 3218.00366 
+Train Error u: 7.783314e+02
+Test Error u: 7.847889e+02
+Job finished at: Sun Mar 16 01:57:35 PM UTC 2025

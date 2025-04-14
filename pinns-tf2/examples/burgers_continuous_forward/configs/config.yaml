@@ -1,0 +1,127 @@
+defaults:
+  - train
+  - _self_
+
+N0: 50
+N_b: 50
+N_f: 10_000
+
+time_domain:
+  _target_: pinnstf2.data.TimeDomain
+  t_interval: [0, 0.99]
+  t_points: 100
+
+spatial_domain:
+  _target_: pinnstf2.data.Interval
+  x_interval: [-1, 1]
+  shape: [256, 1]
+
+mesh:
+  _target_: pinnstf2.data.Mesh
+  root_dir: ${paths.data_dir}
+  read_data_fn: ???
+
+train_datasets:
+  - mesh_sampler:
+      _target_: pinnstf2.data.MeshSampler
+      _partial_: true
+      num_sample: ${N_f}
+      collection_points:
+        - f
+  - initial_condition:
+      _target_: pinnstf2.data.InitialCondition
+      _partial_: true
+      num_sample: ${N0}
+      solution:
+        - u
+  - dirichlet_boundary_condition:
+      _target_: pinnstf2.data.DirichletBoundaryCondition
+      _partial_: true
+      num_sample: ${N_b}
+      solution:
+        - u
+
+val_dataset:
+  - mesh_sampler:
+      _target_: pinnstf2.data.MeshSampler
+      _partial_: true
+      solution:
+        - u
+
+# Now the test dataset uses a different time index (idx_t_test)
+test_dataset:
+  - mesh_sampler:
+      _target_: pinnstf2.data.MeshSampler
+      _partial_: true
+      solution:
+        - u
+
+pred_dataset:
+  - mesh_sampler:
+      _target_: pinnstf2.data.MeshSampler
+      _partial_: true
+      solution:
+        - u
+
+net:
+  _target_: pinnstf2.models.FCN
+  layers: [2, 20, 20, 20, 20, 20, 20, 20, 20, 1]
+  output_names:
+    - u
+  activation: "tanh"  # or "tanh" YY, "sigmoid" YY, "relu" XX, "swish" YY, "softsign" XX, "softplus" YY.
+
+trainer:
+  max_epochs: 30000
+  check_val_every_n_epoch: 30001
+  default_root_dir: ${tensorboard.log_dir}  # Pass log directory to enable Trainer's TensorBoard.
+
+model:
+  optimizer: ${optimizer}
+  loss_fn: mse # sse , mse (default), mae, huber.
+
+# Optimizer configuration provided
+# optimizer:
+#   _target_: tensorflow.keras.optimizers.Adam
+#   learning_rate: 0.001
+# optimizer:
+#   _target_: tensorflow.keras.optimizers.Adagrad
+#   learning_rate: 0.01
+#   initial_accumulator_value: 0.1
+# optimizer:
+#   _target_: tensorflow.keras.optimizers.RMSprop
+#   learning_rate: 0.001
+#   rho: 0.9
+#   momentum: 0.0
+#   epsilon: 1e-7
+optimizer:
+  _target_: tensorflow.keras.optimizers.Nadam
+  learning_rate: 0.002
+  beta_1: 0.9
+  beta_2: 0.999
+  epsilon: 1e-7
+
+train: true
+val: true
+test: true
+optimized_metric:
+  error:
+    - u
+  test: # Comment it out if you dont want test
+    - u
+
+plotting:
+  _target_: pinnstf2.utils.plot_burgers_continuous_forward
+  _partial_: true
+
+seed: 1234
+task_name: burgers_continuous_forward
+
+hydra:
+  searchpath:
+    - pkg://pinnstf2/conf
+
+tensorboard:
+  log_dir: ${paths.output_dir}/logs
+  histogram_freq: 1
+  write_graph: true
+  update_freq: epoch

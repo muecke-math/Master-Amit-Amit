@@ -1,0 +1,20 @@
+Summary Statistics for u:
+  Data shape: (256, 201)
+  Min value: -3.932425448799453
+  Max value: 2.1998422786360754
+  Mean value: 0.36826234402581914
+  Standard Deviation: 0.6013104382216913
+
+Summary Statistics for v:
+  Data shape: (256, 201)
+  Min value: -3.4523031901896957
+  Max value: 2.754265786698505
+  Mean value: 0.15476758836007654
+  Standard Deviation: 0.5279989800306149
+
+Summary Statistics for h:
+  Data shape: (256, 201)
+  Min value: 0.015981892796576278
+  Max value: 3.9987582390710266
+  Mean value: 0.5828178231356
+  Standard Deviation: 0.678417800103592
