@@ -3,8 +3,7 @@
 | **PDE equation**                         | $u_{xx} + u_{yy} + \lambda u = f(x, y)$ |
 | **Domain**                               | $x, y \in [-1, 1]$                      |
 | **Boundary conditions**                  | $u(x,y) = 0$ on all domain boundaries   |
-| **Exact solution (for training/testing)**| $\sin(\pi x)\sin(4\pi y)$              |
-| **Network output**                       | $u(x, y)$                                |
+| ]**Network output**                      | $u(x, y)$ = $\sin(\pi x)\sin(4\pi y)$   |
 | **Layers of net**                        | [2, 50, 50, 50, 50, 1]                  |
 | **Initial condition points ($N_0$)**     | 200                                     |
 | **Boundary condition points ($N_b$)**    | 100 (distributed across 4 boundaries)   |
