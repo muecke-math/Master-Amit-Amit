@@ -13,5 +13,4 @@
 | **Optimizer**                            | Adam (learning rate = 0.001, β₁ = 0.99) |
 | **Adaptive weighting**                   | Enabled (collocation + residual weights)|
 | **Training iterations**                  | 10,000 TF iterations + 10,000 L-BFGS    |
-| **Time stepping**                        | Not applicable (steady-state PDE)       |
 | **Test error (relative $L_2$ norm)**     | Computed over a $101 \times 101$ grid   |
