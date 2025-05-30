@@ -17,7 +17,7 @@ where $u^n$ is data at time $t^n$. We extract data from the exact solution at $t
 
 | **Component**                            | **Details**                                                                 |
 |-----------------------------------------|------------------------------------------------------------------------------|
-| **PDE equations**                        | *fⁿ⁺ᶜʲ = 5.0·uⁿ⁺ᶜʲ − 5.0·(uⁿ⁺ᶜʲ)³ + 0.0001·uⁿ⁺ᶜʲₓₓ*                       |
+| **PDE equations**                        | $f^{n+c_j} = 5.0 u^{n+c_j} - 5.0 (u^{n+c_j})^3 + 0.0001 u^{n+c_j}_{xx}$ |
 | **Periodic boundary conditions**         | *u(t, −1) = u(t, 1), uₓ(t, −1) = uₓ(t, 1)*                                  |
 | **The output of net**                   | *[u₁ⁿ(x), …, u_qⁿ(x), u_{q+1}ⁿ(x)]*                                          |
 | **Layers of net**                        | [2, 128, 128, 128, 128, 1]                                                   |
