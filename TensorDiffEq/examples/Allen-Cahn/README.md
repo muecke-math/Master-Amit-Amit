@@ -17,18 +17,18 @@ where $u^n$ is data at time $t^n$. We extract data from the exact solution at $t
 
 | **Component**                            | **Details**                                                                 |
 |-----------------------------------------|------------------------------------------------------------------------------|
-| **PDE equations**                        | \( f^{n+c_j} = 5.0u^{n+c_j} - 5.0(u^{n+c_j})^3 + 0.0001u^{n+c_j}_{xx} \)     |
-| **Periodic boundary conditions**         | \( u(t, -1) = u(t, 1),\quad u_x(t, -1) = u_x(t, 1) \)                        |
-| **The output of net**                   | \( [u_1^n(x), \ldots, u_q^n(x), u_{q+1}^n(x)] \)                              |
+| **PDE equations**                        | *fⁿ⁺ᶜʲ = 5.0·uⁿ⁺ᶜʲ − 5.0·(uⁿ⁺ᶜʲ)³ + 0.0001·uⁿ⁺ᶜʲₓₓ*                       |
+| **Periodic boundary conditions**         | *u(t, −1) = u(t, 1), uₓ(t, −1) = uₓ(t, 1)*                                  |
+| **The output of net**                   | *[u₁ⁿ(x), …, u_qⁿ(x), u_{q+1}ⁿ(x)]*                                          |
 | **Layers of net**                        | [2, 128, 128, 128, 128, 1]                                                   |
 | **The number of stages (q)**             | 100 (implicitly handled by time stepping strategy)                           |
-| **Sample count from collection points at \( t_0 \)** | 200\*                                                            |
-| **Sample count from solutions at \( t_0 \)**        | 200\*                                                            |
-| \( t_0 \rightarrow t_1 \)                | 0.1 → 0.9                                                                    |
+| **Sample count from collection points at t₀** | 200*                                                                  |
+| **Sample count from solutions at t₀**         | 200*                                                                  |
+| **t₀ → t₁**                              | 0.1 → 0.9                                                                    |
 | **Loss function**                        | MSE                                                                          |
 | **Optimizer**                            | Adam (learning rate = 0.001)                                                 |
 | **Adaptive weighting**                   | Enabled (residual + BC weights)                                              |
 | **Training iterations**                  | 10,000 TF iterations + 10,000 Newton iterations                              |
 
-\* Same points used for collocation and solution samples.
+\* Same points used for collocation and solutions.
 
