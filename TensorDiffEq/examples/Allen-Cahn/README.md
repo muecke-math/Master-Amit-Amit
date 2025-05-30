@@ -22,8 +22,8 @@ where $u^n$ is data at time $t^n$. We extract data from the exact solution at $t
 | **The output of net**                   | $[u^n_1(x),\dots, u^n_q(x), u^n_{q+1}(x)]$ |
 | **Layers of net**                        | [2, 128, 128, 128, 128, 1]                                                   |
 | **The number of stages (q)**             | 100 (implicitly handled by time stepping strategy)                           |
-| **Sample count from collection points at t₀** | 200*                                                                  |
-| **Sample count from solutions at t₀**         | 200*                                                                  |
+| **Sample count from collection points at t₀** | 50000                                                                  |
+| **Sample count from solutions at t₀**         | 50000                                                                  |
 | **t₀ → t₁**                              | 0.1 → 0.9                                                                    |
 | **Loss function**                        | $\text{MSE}_0  + \text{MSE}_b + \text{MSE}_c$ |
 | **Optimizer**                            | Adam (learning rate = 0.001)                                                 |
