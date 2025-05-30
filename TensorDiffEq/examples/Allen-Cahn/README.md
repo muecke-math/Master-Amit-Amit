@@ -25,7 +25,7 @@ where $u^n$ is data at time $t^n$. We extract data from the exact solution at $t
 | **Sample count from collection points at t₀** | 200*                                                                  |
 | **Sample count from solutions at t₀**         | 200*                                                                  |
 | **t₀ → t₁**                              | 0.1 → 0.9                                                                    |
-| **Loss function**                        | MSE                                                                          |
+| **Loss function**                        | $\text{MSE}_0  + \text{MSE}_b + \text{MSE}_c$ |
 | **Optimizer**                            | Adam (learning rate = 0.001)                                                 |
 | **Adaptive weighting**                   | Enabled (residual + BC weights)                                              |
 | **Training iterations**                  | 10,000 TF iterations + 10,000 Newton iterations                              |
